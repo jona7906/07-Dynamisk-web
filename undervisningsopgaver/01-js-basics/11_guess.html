@@ -12,17 +12,22 @@
     <input type="int" id="gætTal">
     <script>
         document.querySelector("button").addEventListener("click", tjekTal);
+
         let randTal = Math.round(Math.random() * 20);
 
+        let antalGæt = 0
+
         function tjekTal() {
+            antalGæt++;
 
             let gæt = document.querySelector("#gætTal").value;
 
             if (gæt == randTal) {
-                console.log("TILLYKKKE DU GÆTTEDE FANME RIGTIG")
+                console.log("TILLYKKKE DU GÆTTEDE FANME RIGTIG PÅ " + antalGæt + ". FORSØG")
                 randTal = Math.round(Math.random() * 20);
+                antalGæt = 0;
             } else {
-                console.log("prøv igen, amatør")
+                console.log("du har brugt " + antalGæt + " gæt, prøv igen amatør")
             }
         }
     </script>
