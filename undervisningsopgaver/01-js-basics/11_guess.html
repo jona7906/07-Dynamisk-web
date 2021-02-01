@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <button>GÆT ET RANDOM TAL</button>
+    <input type="int" id="gætTal">
+    <script>
+        document.querySelector("button").addEventListener("click", tjekTal);
+        let randTal = Math.round(Math.random() * 20);
+
+        function tjekTal() {
+
+            let gæt = document.querySelector("#gætTal").value;
+
+            if (gæt == randTal) {
+                console.log("TILLYKKKE DU GÆTTEDE FANME RIGTIG")
+                randTal = Math.round(Math.random() * 20);
+            } else {
+                console.log("prøv igen, amatør")
+            }
+        }
+    </script>
+
+
+</body></html>
