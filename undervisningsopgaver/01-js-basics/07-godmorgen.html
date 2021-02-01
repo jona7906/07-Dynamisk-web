@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="da">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,8 +14,7 @@
         document.querySelector("button").addEventListener("click", clickTid);
 
         function clickTid() {
-            let tid = 22;
-            //new Date().getHours();
+            let tid = new Date().getHours();
 
             if (tid > 5 && tid < 10) {
                 console.log("Godmorgen klokken er " + tid);
@@ -27,5 +27,8 @@
             }
 
         }
+
     </script>
-</body></html>
+</body>
+
+</html>
