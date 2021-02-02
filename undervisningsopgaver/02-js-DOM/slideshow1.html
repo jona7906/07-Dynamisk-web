@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <header>
+        <h1>TRO PÅ DET...</h1>
+    </header>
+
+    <main>
+        <div class="slideshow">
+            <img src="billeder/img1.png" alt="">
+            <button>NÆSTE</button>
+        </div>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => //tjekker inden om DOM er loaded
+            {
+
+                let tal = 0;
+
+                let img = document.querySelector("img");
+                console.log(img);
+
+                const slideShow = ["img1.png", "img2.png", "img3.png", "img4.png", "img5.png", "img6.png", "img7.png", "img8.png"];
+
+                document.querySelector("button").addEventListener("click", () => {
+                    if (tal < 7) {
+                        tal++;
+                        img.src = "billeder/" + slideShow[tal];
+                        console.log(img);
+                    } else {
+                        tal = 0;
+                        img.src = "billeder/" + slideShow[tal];
+                        console.log(img);
+                    }
+
+
+                })
+
+            })
+    </script>
+</body></html>
