@@ -31,14 +31,21 @@
                 const slideShow = ["img1.png", "img2.png", "img3.png", "img4.png", "img5.png", "img6.png", "img7.png", "img8.png"];
 
                 document.querySelector("button").addEventListener("click", () => {
-                    if (tal < 7) {
+
+                    tal++;
+                    img.src = "billeder/" + slideShow[tal];
+                    console.log("tal er under 7 " + tal);
+
+                    if (tal == 8) {
+                        console.log("tal er 8? " + tal)
+                        img.src = "billeder/img8.png";
+                        document.querySelector("button").textContent = "FORFRA";
                         tal++;
-                        img.src = "billeder/" + slideShow[tal];
-                        console.log(img);
-                    } else {
+                    } else if (tal > 8) {
                         tal = 0;
+                        document.querySelector("button").textContent = "NÆSTE";
                         img.src = "billeder/" + slideShow[tal];
-                        console.log(img);
+                        console.log("tal er over 8 " + tal);
                     }
                 })
             })
