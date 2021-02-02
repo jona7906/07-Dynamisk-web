@@ -67,14 +67,11 @@
     <footer>THIS IS THE FOOTER</footer>
     <script>
         const body = document.querySelector("body");
-
         console.log(body);
 
         const header = document.querySelector("header");
-
         // header.textContent = "KONG GULEROD";
         console.log(header);
-
         header.innerHTML = "<h1>KONG GULEROD</h1>";
 
         const h1 = document.querySelector("h1");
@@ -82,97 +79,52 @@
         h1.textContent += " & HANS AGURK";
 
         const main = document.querySelector("main");
-
         console.log(main);
 
         const underTitel = document.querySelector("h2");
-
         console.log(underTitel);
 
         const section = document.querySelector("section");
-
         console.log(section);
 
 
 
         const article1 = document.querySelector("article:first-child");
-
         console.log(article1);
 
 
 
         const articleImg1 = document.querySelector("article:first-child img");
-
         console.log(articleImg1);
-
         articleImg1.src = "https://placeimg.com/500/500/tech";
-
         articleImg1.alt = "billede1";
 
         const articleTitel1 = document.querySelector("article:first-child h3");
-
         console.log(articleTitel1);
-
         articleTitel1.textContent = "KONG GULEROD";
 
         const articleTekst1 = document.querySelector("article:first-child p");
-
         console.log(articleTekst1);
-
         articleTekst1.textContent = "Kong Gulerod var en gnaven konge, han levede et mørkt liv imens Hans som var en agurk levede et liv i sus og dus";
 
         const article2 = document.querySelector("article:nth-child(2)");
-
         console.log(article2);
 
         const articleImg2 = document.querySelector("article:nth-child(2) img");
-
         console.log(articleImg2);
-
         articleImg2.src = "https://placeimg.com/500/500/animals";
-
         articleImg2.alt = "billede2";
 
         const articleTitel2 = document.querySelector("article:nth-child(2) h3");
-
         console.log(articleTitel2);
-
         articleTitel2.innerHTML = "<h5>HANS AGURK</h5>";
 
         const articleTekst2 = document.querySelector("article:nth-child(2) p");
-
         console.log(articleTekst2);
-
         articleTekst2.innerHTML = "<p>Hans agurk var en fantastisk skabning<p>";
 
         const footer = document.querySelector("footer");
-
         console.log(footer);
-
-
-        const article3 = document.createElement("article");
-
-        console.log(article3);
-
-        section.appendChild(article3);
-
-        const articleImg3 = document.createElement("img");
-
-        article3.appendChild(articleImg3);
-
-        console.log(articleImg3);
-
-        articleImg3.src = "https://placeimg.com/500/500/animals";
-
-        articleImg3.alt = "billede3";
-
-        const articleTekst3 = document.createElement("p");
-
-        console.log(articleTekst3);
-
-        articleTekst3.innerHTML = "<h3>ARTICLE TEKST 3</h3><p>Hans agurk var en fantastisk skabning yallaaaaaaaa hahahhahahahdj sidjsijaiodjjasidjaosidjaso<p>";
-
-        article3.appendChild(articleTekst3);
 
     </script>
 </body>
