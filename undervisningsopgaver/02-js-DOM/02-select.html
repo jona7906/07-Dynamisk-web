@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 10px;
+            background: #ececec;
+
+        }
+
+        section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 2fr));
+        }
+
+        header {
+            text-align: center;
+        }
+
+        article {
+
+            border: 1px solid #000;
+            padding: 10px;
+        }
+
+        footer {
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>TITEL</h1>
+    </header>
+    <main>
+        <h2>UNDERTITEL</h2>
+        <section>
+            <article>
+                <img src="https://placeimg.com/500/500/people" alt="">
+                <h3>ARTICLE 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce auctor volutpat ligula non euismod. Donec sagittis convallis libero, sit amet lobortis quam blandit eu. Quisque varius commodo ultricies.</p>
+            </article>
+            <article>
+                <img src="https://placeimg.com/500/500/people" alt="">
+                <h3>ARTICLE 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce auctor volutpat ligula non euismod. Donec sagittis convallis libero, sit amet lobortis quam blandit eu. Quisque varius commodo ultricies.</p>
+            </article>
+        </section>
+    </main>
+    <footer>THIS IS THE FOOTER</footer>
+    <script>
+        const body = document.querySelector("body");
+        console.log(body);
+
+        const header = document.querySelector("header");
+        console.log(header);
+
+        const h1 = document.querySelector("h1");
+        console.log(h1);
+
+        const main = document.querySelector("main");
+        console.log(main);
+
+        const underTitel = document.querySelector("h2");
+        console.log(underTitel);
+
+        const section = document.querySelector("section");
+        console.log(section);
+
+        const article1 = document.querySelector("article:first-child");
+        console.log(article1);
+
+
+        const articleImg1 = document.querySelector("article:first-child img");
+        console.log(articleImg1);
+
+        const articleTitel1 = document.querySelector("article:first-child h3");
+        console.log(articleTitel1);
+
+        const articleTekst1 = document.querySelector("article:first-child p");
+        console.log(articleTekst1);
+
+        const article2 = document.querySelector("article:nth-child(2)");
+        console.log(article2);
+
+        const articleImg2 = document.querySelector("article:nth-child(2) img");
+        console.log(articleImg2);
+
+        const articleTitel2 = document.querySelector("article:nth-child(2) h3");
+        console.log(articleTitel2);
+
+        const articleTekst2 = document.querySelector("article:nth-child(2) p");
+        console.log(articleTekst2);
+
+        const footer = document.querySelector("footer");
+        console.log(footer);
+
+    </script>
+</body>
+
+</html>
