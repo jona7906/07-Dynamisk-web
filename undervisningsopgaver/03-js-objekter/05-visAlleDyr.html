@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <header></header>
+    <main>
+        <article id="article1">
+
+        </article>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => //tjekker inden om DOM er loaded
+            {
+
+                let dyr = [{
+                        "navn": "Gris",
+                        "type": "Pattedyr",
+                        "levested": "Svinesti",
+                        "billede": "http://mabe-kea.dk/E19/pics/pig.png"
+                    }, {
+                        "navn": "Frø",
+                        "type": "Amfibie",
+                        "levested": "Mose",
+                        "billede": "http://mabe-kea.dk/E19/pics/frog.png"
+                    },
+                    {
+                        "navn": "Ræv",
+                        "type": "Pattedyr",
+                        "levested": "Skov",
+                        "billede": "http://mabe-kea.dk/E19/pics/fox.png"
+                    },
+                    {
+                        "navn": "Sild",
+                        "type": "Fisk",
+                        "levested": "Vand",
+                        "billede": "http://mabe-kea.dk/E19/pics/sild.jpg"
+                    },
+                    {
+                        "navn": "Krokodille",
+                        "type": "Krybdyr",
+                        "levested": "Svinesti",
+                        "billede": "http://mabe-kea.dk/E19/pics/kroko.jpg"
+                    }
+                ];
+
+                console.log(dyr);
+
+                let article = document.querySelector("article");
+                dyr.forEach(dyrene => {
+                    console.log(dyrene.navn);
+                    article.innerHTML += `<p>Navn: ${dyrene.navn} Type: ${dyrene.type}</p>`;
+                })
+
+            })
+
+    </script>
+</body>
+
+</html>
