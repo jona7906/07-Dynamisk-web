@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <header></header>
+    <main>
+
+        <template>
+            <article id="article1">
+                <h2></h2>
+                <img src="" alt="">
+                <p class="art"></p>
+                <p class="sted"></p>
+            </article>
+        </template>
+    </main>
+    <script>
+        "use strict";
+        document.addEventListener("DOMContentLoaded", () => //tjekker inden om DOM er loaded
+            {
+
+
+
+                const dyr = "alleDyr.json";
+
+                async function hentData(dyr) {
+                    const resultat = await fetch(dyr);
+                    const json = await resultat.json();
+                    vis(json);
+                }
+
+                function vis(json) {
+                    console.log(json);
+                    const main = document.querySelector("main");
+                    const template = document.querySelector("template");
+
+                    json.forEach(dyrene => {
+                        const klon = template.cloneNode(true).content;
+
+                        klon.querySelector("h2").textContent = dyrene.navn;
+
+                        klon.querySelector(".art").textContent = dyrene.navn;
+
+                        klon.querySelector(".sted").textContent = dyrene.levested;
+
+                        klon.querySelector("img").src = dyrene.billede;
+
+                        main.appendChild(klon);
+
+
+                    });
+                }
+
+                hentData(dyr);
+                console.log(dyr);
+                //
+                //let main = document.querySelector("main");
+                //let template = document.querySelector("template");
+                //
+                //let article = document.querySelector("article");
+                //
+                //
+                //dyr.forEach(dyrene => {
+                //console.log(dyrene.navn);
+                //
+                //let klon = template.cloneNode(true).content;
+                //
+                //klon.querySelector("h2").textContent = dyrene.navn;
+                //
+                //klon.querySelector(".art").textContent = dyrene.navn;
+                //
+                //klon.querySelector(".sted").textContent = dyrene.levested;
+                //
+                //klon.querySelector("img").src = dyrene.billede;
+                //
+                //main.appendChild(klon);
+                //
+                //})
+
+            })
+    </script>
+</body></html>
