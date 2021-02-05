@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <header></header>
+    <main>
+
+        <template>
+            <article id="article1">
+                <h2>MÆRKE:</h2>
+                <p>TYPE:</p>
+                <p>GRAM:</p>
+                <p>STØRRELSE:</p>
+                <p>BEARRINGS:</p>
+                <p>RATIO:</p>
+            </article>
+        </template>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => //tjekker inden om DOM er loaded
+            {
+
+                const hjul = "hjul.json";
+                console.log(hjul);
+                async function hentData(hjul) {
+                    const resultat = await fetch(hjul);
+                    const json = await resultat.json();
+                    vis(json);
+                }
+
+                function vis(json) {
+                    console.log("vis(json)");
+                    const main = document.querySelector("main");
+                    const template = document.querySelector("template");
+
+                    json.forEach(hjulene => {
+                        const klon = template.cloneNode(true).content;
+
+                        klon.querySelector("h2").textContent += hjulene.mærke;
+
+                        klon.querySelector("p").textContent += hjulene.type;
+
+                        klon.querySelector("p+p").textContent += hjulene.gram;
+
+                        klon.querySelector("p:nth-child(4)").textContent += hjulene.størrelse;
+
+                        klon.querySelector("p:nth-child(5)").textContent += hjulene.bearings;
+
+                        klon.querySelector("p:nth-child(6)").textContent += hjulene.ratio;
+
+                        main.appendChild(klon);
+
+                    })
+                }
+                hentData(hjul);
+
+            })
+    </script>
+</body></html>

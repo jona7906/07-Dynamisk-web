@@ -1,0 +1,32 @@
+[{
+        "mærke": "Daiwa",
+        "type": "Spinnehjul",
+        "gram": 250,
+        "størrelse": 2500,
+        "bearings": 2,
+        "ratio": ["0.1mm/150m", "0.15/100m", "0.2mm/75m"]
+                    },
+    {
+        "mærke": "Okuma",
+        "type": "Spinnehjul",
+        "gram": 200,
+        "størrelse": 2000,
+        "bearings": 1,
+        "ratio": ["0.1mm/100m", "0.15/75m", "0.2mm/50m"]
+                    },
+    {
+        "mærke": "Shimano",
+        "type": "Spinnehjul",
+        "gram": 220,
+        "størrelse": 1000,
+        "bearings": 2,
+        "ratio": ["0.1mm/100m", "0.15/70m", "0.2mm/50m"]
+                    }, {
+        "mærke": "Savage Gear",
+        "type": "Spinnehjul",
+        "gram": 300,
+        "størrelse": 3000,
+        "bearings": 4,
+        "ratio": ["0.1mm/250m", "0.15/200m", "0.2mm/175m"]
+                    }
+                ]
