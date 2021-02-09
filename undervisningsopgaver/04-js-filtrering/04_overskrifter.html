@@ -83,6 +83,7 @@
                 function filtrerPersoner() {
                     filter = this.dataset.troende;
                     hentData();
+                    document.querySelector("h1").textContent = this.textContent;
                 }
 
                 function vis(json) {
@@ -93,6 +94,8 @@
 
                     galleri.textContent = "";
 
+
+
                     json.forEach(person => {
                         if (filter == person.troende || filter == "alle") {
 
@@ -100,8 +103,6 @@
                                 person.troende);
 
                             const klon = template.cloneNode(true).content;
-
-
 
                             klon.querySelector("h2").textContent = person.fornavn + " " + person.efternavn;
 
@@ -113,7 +114,22 @@
 
                             galleri.appendChild(klon);
                         }
+                        /*          if (filter == "ja") {
+                            document.querySelector("h1").textContent = "TROENDE";
+                        }
 
+                        if (filter == "nej") {
+                            document.querySelector("h1").textContent = "IKKE TROENDE";
+                        }
+
+                        if (filter == "tvivler") {
+                            document.querySelector("h1").textContent = "TVIVLER";
+                        }
+
+                        if (filter == "alle") {
+                            document.querySelector("h1").textContent = "GALLERI";
+                        }
+*/
                     });
                 }
 
