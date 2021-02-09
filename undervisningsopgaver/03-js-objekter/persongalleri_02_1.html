@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+
+    <style>
+        .billed_galleri {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 2fr));
+            grid-gap: 2vw;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        article {
+            border: 2px solid grey;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>GALLERI</h1>
+    </header>
+    <nav>
+        <button id="ikke_troende">Ikke-troende</button>
+        <button id="troende">Troende</button>
+        <button id="tvivler">tvivler</button>
+    </nav>
+    <br>
+    <main>
+        <div class="billed_galleri"></div>
+    </main>
+
+
+
+    <template>
+        <article>
+            <h2></h2>
+            <img src="" alt="">
+            <p>TITEL: </p>
+            <p>HOBBY: </p>
+        </article>
+    </template>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => //tjekker inden om DOM er loaded
+            {
+
+                const imgUrl = "https://persongalleri-5d3e.restdb.io/media/";
+                const url = "https://persongalleri-5d3e.restdb.io/rest/persongalleri";
+                const options = {
+                    headers: {
+                        'x-apikey': "600fe9211346a1524ff12e31"
+                    }
+                }
+
+                hentData();
+
+                async function hentData() {
+                    const respons = await fetch(url, options);
+                    const json = await respons.json();
+                    console.log("1");
+                    vis(json);
+                }
+
+
+                function vis(json) {
+                    console.log(json);
+                    const galleri = document.querySelector(".billed_galleri");
+                    const template = document.querySelector("template");
+
+                    let filter = "ja";
+
+                    // function visBilled() {
+                    const klon = template.cloneNode(true).content;
+
+                    klon.querySelector("h2").textContent = person.fornavn + " " + person.efternavn;
+
+                    klon.querySelector("img").src = imgUrl + person.billede[0];
+
+                    klon.querySelector("p").textContent += person.titel;
+
+                    klon.querySelector("p+p").textContent += person.hobby;
+
+                    galleri.appendChild(klon);
+                    //   }
+
+
+                    json.forEach(person => {
+                        if (filter == person.troende) {
+                            visBilled();
+                        }
+
+                    })
+                }
+
+
+                //document.querySelector("#ikke_troende").addEventListener("click", visTroende(json));
+
+                //function visTroende() {
+                //   json.forEach(person => {
+                //     console.log("hej");
+                //   });
+                // }
+
+
+            })
+    </script>
+</body></html>
