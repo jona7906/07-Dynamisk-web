@@ -176,60 +176,24 @@
                             klon.querySelector("p").textContent = ret.kortbeskrivelse;
 
                             klon.querySelector("p+p").textContent = ret.pris + " kr,-";
-                            if (filter == "alle") {
-                                if (ret.kategori == "hovedretter") {
-                                    console.log("123");
-                                    hovedRetter.appendChild(klon);
-                                }
-                                if (
-                                    ret.kategori == "forretter") {
-                                    console.log("123");
-                                    forRetter.appendChild(klon);
-
-                                }
-                                if (
-                                    ret.kategori == "desserter") {
-                                    console.log("123");
-                                    desserter.appendChild(klon);
-
-                                }
-                                if (
-                                    ret.kategori == "sideorders") {
-                                    console.log("123");
-                                    tilbehor.appendChild(klon);
-
-                                }
-                                if (
-                                    ret.kategori == "drikkevarer") {
-                                    console.log("123");
-                                    drikkeVarer.appendChild(klon);
-
-                                }
 
 
-                                /* drikkeVarer.appendChild(klon);
- forRetter.appendChild(klon);
- tilbehor.appendChild(klon);
- desserter.appendChild(klon);*/
-                            }
-
-                            if (filter == "hovedretter") {
-                                hovedRetter.appendChild(klon);
-                            }
-                            if (filter == "drikkevarer") {
-                                drikkeVarer.appendChild(klon);
-                            }
-                            if (filter == "forretter") {
-                                forRetter.appendChild(klon);
-                            }
-                            if (filter == "sideorders") {
-                                tilbehor.appendChild(klon);
-                            }
-                            if (filter == "desserter") {
-                                desserter.appendChild(klon);
-                            }
                         }
-
+                        if (filter == "hovedretter") {
+                            hovedRetter.appendChild(klon);
+                        }
+                        if (filter == "drikkevarer") {
+                            drikkeVarer.appendChild(klon);
+                        }
+                        if (filter == "forretter") {
+                            forRetter.appendChild(klon);
+                        }
+                        if (filter == "sideorders") {
+                            tilbehor.appendChild(klon);
+                        }
+                        if (filter == "desserter") {
+                            desserter.appendChild(klon);
+                        }
                     })
 
                 }
