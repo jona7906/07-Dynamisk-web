@@ -9,20 +9,61 @@
 
     <style>
         main {
+            max-width: 1080px;
+            margin: 0 auto;
+        }
+
+        .kategori {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 2fr));
             grid-gap: 2vw;
-            max-width: 1080px;
-            margin: 0 auto;
+        }
+
+        img {
+            max-width: 100%;
         }
 
         header {
             text-align: center;
         }
 
-        img {
-            max-width: 100%;
+        nav button {
+            font-size: 3.22vw;
+            font-family: serif;
+
         }
+
+        .overskrift {
+            background-image: url(putin_01.jpg);
+            background-position: 10% 10%;
+            background-size: cover;
+            width: 100%;
+            height: 40vw;
+        }
+
+        .overskrift h1 {
+            padding-top: 26vw;
+            font-size: 12vw;
+            color: aliceblue;
+            margin-top: 0;
+            font-family: russianText;
+        }
+
+        @font-face {
+            font-family: russianText;
+            src: url(kremlin.ttf)
+        }
+
+        .overskrift img {
+            position: absolute;
+            width: 10vw;
+            height: 10vw;
+            top: 10vw;
+            left: 23vw;
+
+        }
+
+
 
         article {
             border: 2px solid grey;
@@ -32,20 +73,34 @@
 
 <body>
     <header>
-        <img src="" alt="">
+        <div class="overskrift">
+            <img src="cake_01.png" alt="">
+            <h1>BABUSHKA</h1>
+        </div>
         <nav>
-            <button>Alle</button>
-            <button>Forretter</button>
-            <button>Hovedretter</button>
-            <button>Desserter</button>
-            <button>Drikkevarer</button>
-            <button>Tilbehør</button>
+            <button data-kategori="alle" class="valgt" id="Alle">Alle</button>
+            <button data-kategori="forretter">Forretter</button>
+            <button data-kategori="hovedretter">Hovedretter</button>
+            <button data-kategori="desserter">Desserter</button>
+            <button data-kategori="drikkevarer">Drikkevarer</button>
+            <button data-kategori="sideorders">Tilbehør</button>
         </nav>
 
     </header>
     <br>
     <main>
+        <h2>MENU</h2>
 
+        <h3>FORRETTER</h3>
+        <div class="kategori" id="forretter"></div>
+        <h3>HOVED RETTER</h3>
+        <div class="kategori" id="hoved_retter"></div>
+        <h3>DESSERTER</h3>
+        <div class="kategori" id="desserter"></div>
+        <h3>TILBEHØR</h3>
+        <div class="kategori" id="tilbehor"></div>
+        <h3>DRIKKEVARER</h3>
+        <div class="kategori" id="drikkevarer"></div>
 
 
 
@@ -64,6 +119,8 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => //tjekker inden om DOM er loaded
             {
+
+
                 const url = "https://babushka-dd8a.restdb.io/rest/menu";
                 const options = {
                     headers: {
@@ -83,11 +140,28 @@
 
                 function vis(json) {
                     console.log(json);
-                    const retter = document.querySelector("main");
+
+
+                    const hovedRetter = document.querySelector("#hoved_retter");
+
+                    const forRetter = document.querySelector("#forretter");
+                    const tilbehor = document.querySelector("#tilbehor");
+                    const desserter = document.querySelector("#desserter");
+                    const drikkeVarer = document.querySelector("#drikkevarer");
+
+
                     const template = document.querySelector("template");
                     const imgURL = "https://babushka-dd8a.restdb.io/media/";
 
-                    retter.textContent = "";
+                    hovedRetter.textContent = "";
+                    forRetter.textContent = "";
+                    drikkeVarer.textContent = "";
+                    desserter.textContent = "";
+                    tilbehor.textContent = "";
+
+
+
+
                     json.forEach(ret => {
                         if (filter == ret.kategori || filter == "alle") {
 
@@ -103,7 +177,22 @@
 
                             klon.querySelector("p+p").textContent = ret.pris + " kr,-";
 
-                            retter.appendChild(klon);
+
+                        }
+                        if (filter == "hovedretter") {
+                            hovedRetter.appendChild(klon);
+                        }
+                        if (filter == "drikkevarer") {
+                            drikkeVarer.appendChild(klon);
+                        }
+                        if (filter == "forretter") {
+                            forRetter.appendChild(klon);
+                        }
+                        if (filter == "sideorders") {
+                            tilbehor.appendChild(klon);
+                        }
+                        if (filter == "desserter") {
+                            desserter.appendChild(klon);
                         }
                     })
 
@@ -116,6 +205,9 @@
 
                 function filtrerRetter() {
                     console.log("filtrering");
+                    filter = this.dataset.kategori;
+                    document.querySelector("h1").textContent = this.textContent;
+                    hentData();
                 }
 
 
