@@ -176,6 +176,12 @@
                             klon.querySelector("p").textContent = ret.kortbeskrivelse;
 
                             klon.querySelector("p+p").textContent = ret.pris + " kr,-";
+
+                            klon.querySelector("article").addEventListener("click", () => {
+                                visRet(ret);
+                            })
+
+
                             if (filter == "alle") {
                                 if (ret.kategori == "hovedretter") {
                                     console.log("123");
@@ -243,7 +249,9 @@
                 }
 
 
-
+                function visRet(hvad) {
+                    location.href = `ret.html?id=${hvad._id}`;
+                }
 
 
 
