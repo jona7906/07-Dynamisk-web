@@ -8,9 +8,28 @@
     <link rel="stylesheet" href="">
 
     <style>
+        * {
+            margin: 0;
+        }
+
+        body {
+            background-image: url(dug_01.png);
+            background-size: cover;
+        }
+
         main {
-            max-width: 1080px;
+            max-width: 1200px;
             margin: 0 auto;
+            background-color: white;
+            /*#92b59f*/
+
+            padding: 2vw;
+
+        }
+
+        .valgt {
+            background-color: green;
+            color: aliceblue;
         }
 
         .kategori {
@@ -27,8 +46,10 @@
             text-align: center;
         }
 
+        nav {}
+
         nav button {
-            font-size: 3.22vw;
+            font-size: 4vw;
             font-family: serif;
 
         }
@@ -63,11 +84,26 @@
 
         }
 
+        h2 {
+            text-align: left;
+            font-family: russianText;
+            font-size: 10vw;
+            position: relative;
+            margin: 0;
+        }
 
+        h3 {
+            font-size: 2vw;
+            text-align: center;
+            padding: 1vw;
+        }
 
         article {
             border: 2px solid grey;
+            background-color: aliceblue;
+            padding: 1vw;
         }
+
     </style>
 </head>
 
@@ -77,6 +113,7 @@
             <img src="cake_01.png" alt="">
             <h1>BABUSHKA</h1>
         </div>
+        <br>
         <nav>
             <button data-kategori="alle" class="valgt" id="Alle">Alle</button>
             <button data-kategori="forretter">Forretter</button>
@@ -93,23 +130,21 @@
 
         <h3>FORRETTER</h3>
         <div class="kategori" id="forretter"></div>
+        <br>
         <h3>HOVED RETTER</h3>
-        <div class="kategori" id="hoved_retter"></div>
+        <div class="kategori" id="hoved_retter"></div><br>
         <h3>DESSERTER</h3>
-        <div class="kategori" id="desserter"></div>
+        <div class="kategori" id="desserter"></div><br>
         <h3>TILBEHØR</h3>
-        <div class="kategori" id="tilbehor"></div>
+        <div class="kategori" id="tilbehor"></div><br>
         <h3>DRIKKEVARER</h3>
         <div class="kategori" id="drikkevarer"></div>
-
-
-
     </main>
 
     <template>
         <article>
             <img src="" alt="">
-            <h3></h3>
+            <h4></h4>
             <p></p>
             <p></p>
         </article>
@@ -152,24 +187,29 @@
 
                     const template = document.querySelector("template");
                     const imgURL = "https://babushka-dd8a.restdb.io/media/";
-
                     hovedRetter.textContent = "";
                     forRetter.textContent = "";
                     drikkeVarer.textContent = "";
                     desserter.textContent = "";
                     tilbehor.textContent = "";
 
-
-
+                    const h3_01 = document.querySelector("h3:first-of-type");
+                    const h3_02 = document.querySelector("h3:nth-of-type(2)");
+                    const h3_03 = document.querySelector("h3:nth-of-type(3)");
+                    const h3_04 = document.querySelector("h3:nth-of-type(4)");
+                    const h3_05 = document.querySelector("h3:nth-of-type(5)");
 
                     json.forEach(ret => {
+                        if (filter != ret.kategori) {
+
+                        }
                         if (filter == ret.kategori || filter == "alle") {
 
                             console.log("ret: " + ret.kategori);
 
                             const klon = template.cloneNode(true).content;
 
-                            klon.querySelector("h3").textContent = ret.navn;
+                            klon.querySelector("h4").textContent = ret.navn;
 
                             klon.querySelector("img").src = imgURL + ret.billede[0];
 
@@ -185,29 +225,39 @@
                             if (filter == "alle") {
                                 if (ret.kategori == "hovedretter") {
                                     console.log("123");
+
+                                    h3_02.textContent = "HOVEDRETTER";
+
+
+
                                     hovedRetter.appendChild(klon);
                                 }
                                 if (
                                     ret.kategori == "forretter") {
                                     console.log("123");
 
+                                    h3_01.textContent = "FORRETTER";
                                     forRetter.appendChild(klon);
 
                                 }
                                 if (
                                     ret.kategori == "desserter") {
+                                    h3_03.textContent = "DESSERTER";
                                     console.log("123");
                                     desserter.appendChild(klon);
 
                                 }
                                 if (
                                     ret.kategori == "sideorders") {
+                                    h3_04.textContent = "TILBEHØR";
                                     console.log("123");
                                     tilbehor.appendChild(klon);
 
                                 }
                                 if (
+
                                     ret.kategori == "drikkevarer") {
+                                    h3_05.textContent = "DRIKKEVARER";
                                     console.log("123");
                                     drikkeVarer.appendChild(klon);
 
@@ -216,18 +266,45 @@
                             }
 
                             if (filter == "hovedretter") {
+                                h3_01.textContent = "";
+                                h3_03.textContent = "";
+                                h3_04.textContent = "";
+                                h3_05.textContent = "";
+                                h3_02.textContent = "HOVEDRETTER";
                                 hovedRetter.appendChild(klon);
                             }
                             if (filter == "drikkevarer") {
+
+                                h3_01.textContent = "";
+                                h3_02.textContent = "";
+                                h3_03.textContent = "";
+                                h3_04.textContent = "";
+                                h3_05.textContent = "DRIKKEVARER";
+
                                 drikkeVarer.appendChild(klon);
                             }
                             if (filter == "forretter") {
+                                h3_01.textContent = "FORRETTER";
+                                h3_02.textContent = "";
+                                h3_03.textContent = "";
+                                h3_04.textContent = "";
+                                h3_05.textContent = "";
                                 forRetter.appendChild(klon);
                             }
                             if (filter == "sideorders") {
+                                h3_01.textContent = "";
+                                h3_02.textContent = "";
+                                h3_03.textContent = "";
+                                h3_04.textContent = "TILBEHØR";
+                                h3_05.textContent = "";
                                 tilbehor.appendChild(klon);
                             }
                             if (filter == "desserter") {
+                                h3_01.textContent = "";
+                                h3_02.textContent = "";
+                                h3_03.textContent = "DESSERTER";
+                                h3_04.textContent = "";
+                                h3_05.textContent = "";
                                 desserter.appendChild(klon);
                             }
                         }
@@ -244,7 +321,9 @@
                 function filtrerRetter() {
                     console.log("filtrering");
                     filter = this.dataset.kategori;
-                    document.querySelector("h1").textContent = this.textContent;
+                    /*document.querySelector("h3:nth-of-type(even)").textContent = this.textContent;*/
+                    document.querySelector(".valgt").classList.remove("valgt");
+                    this.classList.add("valgt");
                     hentData();
                 }
 
@@ -256,5 +335,8 @@
 
 
             })
+
     </script>
-</body></html>
+</body>
+
+</html>
